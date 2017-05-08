@@ -8,8 +8,8 @@
   - name: deploy
     tag: master
     service: deploy
-    command: codeship_heroku deploy /deploy laravel-codeship-demo
+    command: codeship_heroku deploy /deploy codeship-laravel-demo
   - name: migrate
     tag: master
     service: deploy
-    command: heroku run --app laravel-codeship-demo -- php artisan migrate --no-interaction
+    command: heroku run --app codeship-laravel-demo -- php artisan migrate --no-interaction
