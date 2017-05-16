@@ -4,7 +4,7 @@
     steps:
     - name: tests
       service: web
-      command: bin/ci phpunit
+      command: phpunit
   - name: deploy
     tag: master
     service: deploy
