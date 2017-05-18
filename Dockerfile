@@ -17,6 +17,5 @@ COPY . /app
 WORKDIR /app
 
 RUN composer install --prefer-source --no-interaction
-RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
 ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"

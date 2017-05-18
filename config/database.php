@@ -1,9 +1,9 @@
 <?php
 
-$host = get_env('db_host');
-$username = get_env('db_username');
-$password = get_env('db_password');
-$database = get_env('db_database');
+$host = getenv('db_host');
+$username = getenv('db_username');
+$password = getenv('db_password');
+$database = getenv('db_database');
 
 return [
 
