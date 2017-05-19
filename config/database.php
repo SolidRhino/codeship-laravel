@@ -14,7 +14,7 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => $host,
-            'database' => $database,
+            'database' => 'forge',
             'username' => $username,
             'password' => $password,
             'charset' => 'utf8',
