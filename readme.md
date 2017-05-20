@@ -1,6 +1,6 @@
 # Codeship Pro PHP Laravel Example
 
-[ ![Codeship Status for codeship-library/php-laravel-todoapp](https://app.codeship.com/projects/a1e9ed50-fb78-0134-45e4-5e2c47e62404/status?branch=master)](https://app.codeship.com/projects/211535)
+[ ![Codeship Status for hiimtaylorjones/codeship-laravel](https://app.codeship.com/projects/9c4ea360-15b1-0135-f340-62bb81783d1a/status?branch=master)](https://app.codeship.com/projects/217976)
 
 ## Overview
 The following repository is a `todo` API example developed with PHP and the Laravel framework.
