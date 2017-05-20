@@ -1,9 +1,10 @@
 <?php
 
-$host = getenv('DB_HOST');
-$username = getenv('DB_USERNAME');
-$password = getenv('DB_PASSWORD');
-$database = getenv('DB_DATABASE');
+$url = parse_url(getenv("DATABASE_URL"));
+$host = $url["host"];
+$username = $url["user"];
+$password = isset($url["pass"]) ? $url["pass"] : '';
+$database = substr($url["path"], 1);
 
 return [
 
