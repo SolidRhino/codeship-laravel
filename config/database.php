@@ -3,7 +3,7 @@
 $host = getenv('DB_HOST');
 $username = getenv('DB_USERNAME');
 $password = getenv('DB_PASSWORD');
-$database = getenv('DB_DATA');
+$database = getenv('DB_DATABASE');
 
 return [
 
