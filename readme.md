@@ -7,7 +7,7 @@ The following repository is a `todo` API example developed with PHP and the Lara
 
 This repo serves two main goals:
 
-1. Example application using [Codeship Pro]()
+1. Example application using [Codeship Basic]()
 2. A [Todo Backend](http://todobackend.com/) community project.  
 
 The following `README` is a guide to build and deploy with Codeship Pro You will also be able to run this project locally, and use it as a starter app for PHP-Laravel Docker projects.
@@ -18,22 +18,15 @@ Be sure to star/watch this repo to stay up-to-date with any changes. If you have
 
 There are a few resources to make sure you have available during this guide.
 
-> This section makes the assumption that you will be following along from start to finish. If you wish to skip the deployment to Heroku, ignore step 5.
+1. A local instance of [Docker Community Edition](https://www.docker.com/community-edition#/download)
+2.  A [Codeship.](https://app.codeship.com/registrations/new) Account
+3. A [Laravel Forge](https://forge.laravel.com/auth/register) Account - requires subscription
+4. A [DigitalOcean](https://cloud.digitalocean.com/registrations/new) or [Amazon Web Services](https://www.amazon.com/ap/signin?openid.assoc_handle=aws&openid.return_to=https%3A%2F%2Fsignin.aws.amazon.com%2Foauth%3Fresponse_type%3Dcode%26client_id%3Darn%253Aaws%253Aiam%253A%253A015428540659%253Auser%252Fawssignupportal%26redirect_uri%3Dhttps%253A%252F%252Fportal.aws.amazon.com%252Fbilling%252Fsignup%253Fnc2%253Dh_ct%2526redirect_url%253Dhttps%25253A%25252F%25252Faws.amazon.com%25252Fregistration-confirmation%2526state%253DhashArgs%252523%2526isauthcode%253Dtrue%26noAuthCookie%3Dtrue&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&action=&disableCorpSignUp=&clientContext=&marketPlaceId=&poolName=&authCookies=&pageId=aws.ssop&siteState=pre-register%2Cen_US&accountStatusPolicy=P1&sso=&openid.pape.preferred_auth_policies=MultifactorPhysical&openid.pape.max_auth_age=120&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&server=%2Fap%2Fsignin%3Fie%3DUTF8&accountPoolAlias=&forceMobileApp=0&language=en_US&forceMobileLayout=0) Account
+5. Some sort of source control hosting code account ( [GitHub](https://github.com/) , [Bitbucket](https://bitbucket.org/account/signup/) , [GitLab](https://gitlab.com/users/sign_in) )
+6. A local download of our application found [here](https://github.com/hiimtaylorjones/codeship-laravel)
+7. A hosted (forked) instance of this application on the source control hosting account of your choice.
 
-1. [Docker CE](https://store.docker.com/search?type=edition&offering=community) - Container service everything will run on
-2. A public, cloud based [Github](https://github.com/join)/[Gitlab](https://gitlab.com/users/sign_in#register)/[Bitbucket](https://bitbucket.org/account/signup/) Account - Git Repository service
-  + These must be cloud based, and not on your own servers.
-  + You must be an admin for the repo
-3. [Codeship](https://app.codeship.com/registrations/new) Account - CI/CD service
-  + You can signup using any of the 3rd party logins or email/password
-4. [Codeship Jet CLI](https://documentation.codeship.com/pro/getting-started/installation/#installing-jet) - CLI tool for testing builds locally
-  + This can also be installed with `brew cask install jet`
 
-5. [Heroku](https://signup.heroku.com/) Account - App hosting
-
-Signup for each of these is free, and should only take you a few minutes if you don't already have one.  You can use your current accounts if you already have one available.
-
-Once you have everything ready to go, you can move on to the next step.
 
 ## Continuous Integration with Codeship
 
