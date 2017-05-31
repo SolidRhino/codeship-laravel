@@ -27,7 +27,6 @@ There are a few resources to make sure you have available during this guide.
 7. A hosted (forked) instance of this application on the source control hosting account of your choice.
 
 
-
 ## Continuous Integration with Codeship
 
 Continuous Integration requires developers to integrate code to a repository that is then verified by an automated build.
@@ -78,99 +77,4 @@ Your project is set up at this time, and any code commited and pushed to the rep
 
 > Note: The current setup will attempt to deploy on master, which will fail until we set these up.  We will test the build locally without the deployment first.
 
-### Download Codeship encryption key
-
-While you are in the Codeship project, there is an encryption key you will be using for other steps that can be downloaded now. The encryption key can be used to encrypt sensitive data so it can be safely committed.
-
-1. In project settings, click `General` in the left menu
-2. Download the `AES key`, and move it to your project's root folder
-3. Rename the file to `codeship.aes`
-
-> Alternatively, you can create the file `codeship.aes` and copy paste the key directly into that file.
-
-### Test locally with Jet CLI
-
-In the first part of this tutorial, you should have installed the `Jet CLI`.  If not, make sure you do that now.  If you run `jet` in your terminal you should see the following output
-
-```
-Usage:
-  jet [command]
-....
-```
-
-If everything is working properly, you can now test the build.
-
-1. Run `jet steps`
-  + The output is exactly what you will see in Codeship
-2. After the build runs, you should end up with the following output in your terminal:
-
-```
-...
-...
-{StepFinished=step_name:"tests" type:STEP_FINISHED_TYPE_SUCCESS}
-{StepFinished=step_name:"deploy" type:STEP_FINISHED_TYPE_SKIPPED}
-```
-At this point, this build will work in Codeship. The deploy step was skipped because the local build was not tagged.  If you run `jet steps --tag master` you would see the build process start immediately following. This will fail because there are a couple more steps to finalize.
-
-Let's move on and do that now.
-
-> If you want to avoid running the deployment step and push the current code into your repository, you can create a new branch. This will bypass the deployment in Codeship and only run the build.
-
-## Continuous Deployment to Heroku with Codeship
-
-Much like continuous integration, continuous deployment is the practice of shipping code to production on a frequent basis. With Codeship, you can add a deployment step that runs when all tests pass. You can also filter based on specific criteria like tags, which this repo does. When the branch is `master` and all tests pass, we deploy immediately following to Heroku.
-
-Let's get the app set up, and start deploying code.
-
-### Create Heroku app
-1. Login to Heroku (if not already)
-2. Click `New` -> `Create New App`
-  + You can leave the defaults, or change them as needed
-3. Click the `Create App` button
-
-This app uses [`PostgreSQL`](https://www.postgresql.org/) as it's database, and Heroku has a free add-on you can use.
-
-1. Click `Resources`
-2. Under `Add-ons`, search for `postgres`
-3. In the results drop down, click on  "Heroku Postgres"
-4. Leave the selction as `Hobby Dev - Free`, then click the `Provision` button.
-
-Copy the new application name for use later.
-
-### Get Your Heroku API key
-1. Click on your avatar in the upper right, then click `Account Settings`
-2. Near the bottom, you will find `API key`. Click the `Reveal` button
-3. Copy the API key
-4. In the project files on your local machine, open `deployment.env.sample` and change `your_api_key_here` to your api key without any qutes.
-13. Rename `deployment.env.sample` to `deployment.env`
-
-### Create encrypted files
-
-In a previous step, you should have created the `codeship.aes` file. This encryption key can be used to encrypt sensitive data so it can be safely committed.
-
-In this step, we will be encrypting the Heroku api key file you just created.
-
-1. In your terminal, navigate to your project's root folder.
-2. Ensure the `codeship.aes` and `deployment.env` files.
-3. Run the command `jet encrypt deployment.env deployment.env.encrypted`
-
-This will encrypt the file with your api key from Heroku. the unencrypted `deployment.env`, and `codeship.aes` key are both in the .gitignore file and will not be commited to the repository.
-
-
-### Commit changes and push
-
-At this point, you have everything you need to test and deploy the project.
-
-To simplify the deployment to Heroku, Codeship provides a Docker image called [`codeship/heroku-deployment`](https://documentation.codeship.com/pro/continuous-deployment/heroku/). We will be using this to deploy.
-
-1. Open the `codeship-steps.yml` file
-2. Locate the lines `command: codeship_heroku deploy /deploy php-laravel-todoapp` and `command: heroku run --app php-laravel-todoapp -- php artisan migrate --no-interaction`
-3. Replace `php-laravel-todoapp` with your Heroku application name.
-4. Make sure all files are added, and commit your changes.
-3. Push to the master branch of your remote repository.
-4. Open your Codeship project in a browser.
-5. Click the build to watch it happen.
-
-When complete and the build is green, you should now be able to navigate to the app with the Heroku provided url `yourappname.heroku.com`.
-
-If you run into trouble at any point, please submit an [issue here](https://github.com/codeship-library/php-laravel-todoapp/issues/new).
+If you run into trouble at any point, please submit an [issue here](https://github.com/hiimtaylorjones/codeship-laravel/issues/new).
