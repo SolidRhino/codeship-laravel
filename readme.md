@@ -70,7 +70,7 @@ Now that your repository is setup, the next step is to create the project in Cod
  + if you originally signed up with an SCM different than above, we will connect to the service during this step
 4. `Choose Your Repository`: Copy/Paste the Repository Clone URL link from previous step
 5. Click the `Connect` button
-6. `Configure Project`: Click the `Select Pro Project` button
+6. `Configure Project`: Click the `Select Basic Project` button
   + The setup instructions displayed can be ignored for now, but will be here to remind you in the future
 
 Your project is set up at this time, and any code commited and pushed to the repository will now run builds automatically, based on our current setup.
